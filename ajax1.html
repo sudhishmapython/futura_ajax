@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button id="populate">RESULT</button> -->
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>NAME</td>
+                <td>EMAIL</td>
+            </tr>
+
+        </thead>
+        <tbody id="result">
+           <tr>
+
+           </tr>
+        </tbody>
+    </table>
+    <script>
+        var xhr=new XMLHttpRequest();
+        xhr.open("get","https://jsonplaceholder.typicode.com/users");      //3 arguments,third argument-asyncronous or sychronous
+         xhr.send();
+        
+// document.getElementById("populate").addEventListener("click",function(){
+//    xhr.send();
+// })
+
+        xhr.onreadystatechange=function(){
+            // console.log(xhr.readyState);
+            if(xhr.readyState==4){
+                if(xhr.status==200){
+                    // alert("success");
+                    // alert(xhr.responseText);
+                    var result_data=JSON.parse(xhr.responseText);
+                    // console.log(result_data);
+                   // var html_content="";
+                    for(i=0;i<result_data.lenght;++i)
+                    {
+                        var current_record=result_data[i];
+                        console.log(current_record);
+                    //     html_content=html_content+"<tr><td>"+current_record.id+"</td><td>"+current_record.name+"</td><td>"+current_record.email+"/td></tr>";
+                            
+                    }
+                    // document.getElementById("result").innerHTML=html_content;
+                    
+                }
+                    else{
+                        alert("error");
+                    }
+                }
+              
+            }
+        
+    </script>
+</body>
+</html>

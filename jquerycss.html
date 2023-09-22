@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+<p>This is a paragraph.</p>
+
+<button>Click me to hide paragraph</button>
+
+
+<script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        $("p").css("background-color", "red");
+        $("p").css({"background-color": "red", "font-size": "200%"});
+        // alert("Background color = " + $("p").css("background-color"));
+      });
+    });
+    </script>
+    
+</body>
+</html>
